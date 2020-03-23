@@ -1,12 +1,31 @@
-<div class="list-autos" *ngFor="let auto of autos">
+<ng-container *ngFor="let auto of autos"> 
+    <div class="list-autos" >
 
-    <span>
-        Icono
-    </span>
+        <div class="select" (click)="open(auto, autoModal)">
+            <fa-icon [icon]="faEye"></fa-icon>
+        </div>
+        
+        <div>{{auto.submarca}} / {{auto.modelo}}</div>
+    </div>
+</ng-container>
 
-    <span>
-    {{auto.submarca}} / {{auto.modelo}}
-    </span>
-
-
-</div>
+<ng-template #autoModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{autoSeleccionado.marca}} - {{autoSeleccionado.submarca}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          
+            {{autoSeleccionado.descripcion}}
+          
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </ng-template>

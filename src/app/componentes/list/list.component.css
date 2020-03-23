@@ -4,6 +4,10 @@
     justify-content: space-between;
     margin: 7px;
     padding: 5px;
-    background-color: rgb(243, 227, 250);
+    background-color: rgb(144, 200, 253);
     border-radius: 5px;
+}
+.select
+{
+    cursor: pointer;
 }

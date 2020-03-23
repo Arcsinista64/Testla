@@ -7,6 +7,9 @@ import { HeaderComponent } from './componentes/header/header.component';
 import { VistasComponent } from './componentes/vistas/vistas.component';
 import { ListComponent } from './componentes/list/list.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +19,9 @@ import { ListComponent } from './componentes/list/list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

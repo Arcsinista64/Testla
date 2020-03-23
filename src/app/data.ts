@@ -1,5 +1,10 @@
 import { Automovil } from "./models";
 
+    //     marca: string;
+    //     submarca: string;
+    //     modelo: number;
+    //     descripcion: string;
+    //     fecha_registro: Date;
 
 export var AUTOMOVILES: Array<Automovil> =
 [
@@ -44,6 +49,5 @@ export var AUTOMOVILES: Array<Automovil> =
         modelo: 2017,
         descripcion: "Tesla Roadster Rojo",
         fecha_registro: new Date('2020-03-10')
-
     },
 ];

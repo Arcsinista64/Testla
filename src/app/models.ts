@@ -1,4 +1,4 @@
-export interface Automovil{
+export interface Automovil {
     marca: string;
     submarca: string;
     modelo: number;

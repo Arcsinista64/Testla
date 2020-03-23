@@ -1,0 +1,9 @@
+.list-autos
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 7px;
+    padding: 5px;
+    background-color: rgb(243, 227, 250);
+    border-radius: 5px;
+}

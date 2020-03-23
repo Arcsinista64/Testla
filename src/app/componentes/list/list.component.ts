@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AUTOMOVILES } from 'src/app/data';
 import { Automovil } from 'src/app/models';
+import { AUTOMOVILES } from 'src/app/data';
 
 @Component({
   selector: 'app-list',
@@ -10,9 +10,11 @@ import { Automovil } from 'src/app/models';
 export class ListComponent implements OnInit {
 
   autos: Automovil[];
+
   constructor() { }
 
   ngOnInit(): void {
-    this.autos = AUTOMOVILES;
+  this.autos = AUTOMOVILES;
   }
+
 }

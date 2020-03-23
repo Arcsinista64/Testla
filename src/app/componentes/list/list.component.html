@@ -1,5 +1,12 @@
-<div *ngFor='let auto of autos'>
+<div class="list-autos" *ngFor="let auto of autos">
+
+    <span>
+        Icono
+    </span>
+
+    <span>
+    {{auto.submarca}} / {{auto.modelo}}
+    </span>
 
 
-    <div>{{ auto.submarca }} / {{ auto.modelo}}</div>
 </div>

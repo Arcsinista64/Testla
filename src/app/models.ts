@@ -5,3 +5,10 @@ export interface Automovil {
     descripcion: string;
     fecha_registro: Date;
 }
+
+export interface Country {
+    name: string;
+    flag: string;
+    area: number;
+    population: number;
+}

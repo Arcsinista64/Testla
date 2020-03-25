@@ -9,13 +9,19 @@ import { ListComponent } from './componentes/list/list.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { TableComponent } from './componentes/table/table.component';
+import { PageNotFoundComponent } from './componentes/page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     VistasComponent,
-    ListComponent
+    ListComponent,
+    TableComponent,
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

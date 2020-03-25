@@ -3,7 +3,24 @@ body {
     display: block;
     margin: 0px;
     font-family: rubik,arial;
-    font-size: 14px;
+    font-size: 22px;
     color: #142850;
 
+}
+a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover {
+    color: gray;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+a.active {
+    color: gray;
+    cursor: pointer;
+    text-decoration: none;
+    
 }

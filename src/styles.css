@@ -21,6 +21,19 @@ a:hover {
 a.active {
     color: gray;
     cursor: pointer;
-    text-decoration: none;
-    
+    text-decoration: none; 
+}
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #142850;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+.select
+{
+    cursor: pointer;
 }

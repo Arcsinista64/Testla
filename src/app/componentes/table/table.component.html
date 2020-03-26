@@ -3,22 +3,39 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Country</th>
-      <th scope="col">Area</th>
-      <th scope="col">Population</th>
+      <th scope="col">N°</th>
+      <th scope="col">Modelos</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Submarca</th>
+      <th scope="col">Descripción</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let country of countries; index as i">
-      <th scope="row">{{ i + 1 }}</th>
+    <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; index as i">
+      <th scope="row">{{ (i+1) + (page-1) * pageSize }}</th>
+      <td>Modelo here!</td>
+      <td>{{auto.marca }}</td>
+      <td>{{auto.submarca}}</td>
+      <td>{{auto.descripcion}}</td>
       <td>
-        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
-        {{ country.name }}
+        <fa-icon class="select" [icon]="faEdit"></fa-icon>
       </td>
-      <td>{{ country.area | number }}</td>
-      <td>{{ country.population | number }}</td>
+      <td>
+        <fa-icon class="select" [icon]="faTrash"></fa-icon>
+      </td>
+
     </tr>
     </tbody>
   </table>
+
+  <div class="">
+    <hr>
+    <ngb-pagination class="d-flex justify-content-center" [maxSize]="12" [rotate]="true" [collectionSize]="collectionSize" [boundaryLinks]="true" [(page)]="page" [pageSize]="pageSize">
+    </ngb-pagination>
+  </div>
+    
+  
+
 </div>

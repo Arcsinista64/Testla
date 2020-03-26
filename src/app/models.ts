@@ -1,9 +1,10 @@
 export interface Automovil {
+    id: number,
+    modelos: number[];
     marca: string;
     submarca: string;
-    modelo: number;
     descripcion: string;
-    fecha_registro: Date;
+    // claveVehicular: number;
 }
 
 export interface Country {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Country } from 'src/app/models';
-import { COUNTRIES } from 'src/app/data';
+import { AutosService } from 'src/app/servicios/autos.service';
+import { Automovil } from 'src/app/models';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-table',
@@ -9,11 +11,27 @@ import { COUNTRIES } from 'src/app/data';
 })
 export class TableComponent implements OnInit {
 
-  countries: Country[];
-  constructor() { }
+  autos: Automovil[];
+  numero: Array<number>;
+
+  page = 1;
+  pageSize = 10;
+  collectionSize;
+
+  constructor(private autoService: AutosService) { }
 
   ngOnInit(): void {
-    this.countries = COUNTRIES;
+    this.autoService.getAutos().subscribe((response)=>{
+      this.autos = response.data;
+      this.collectionSize = response.data.length;
+
+      this.numero = new Array[this.collectionSize];
+    })
   }
 
+  
+
+  // ICONS
+  faEdit = faEdit;
+  faTrash = faTrash;
 }

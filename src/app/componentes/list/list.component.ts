@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Automovil } from 'src/app/models';
-import { AUTOMOVILES } from 'src/app/data';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { NgbActiveModal, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
+import { AutosService } from 'src/app/servicios/autos.service';
 
 @Component({
   selector: 'app-list',
@@ -17,16 +17,19 @@ export class ListComponent implements OnInit {
   
   closeResult = '';
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private autoService: AutosService) { }
 
   ngOnInit(): void {
-  this.autos = AUTOMOVILES;
+
+    this.autoService.getAutos().subscribe((response)=>{
+      this.autos = response.data;
+    })
+
   }
 
   OnSelect(auto: Automovil)
   {
     this.autoSeleccionado = auto;
-    alert("hi");
   }
 
   open(auto: Automovil, autoModal) {

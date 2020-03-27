@@ -3,3 +3,10 @@
     vertical-align: middle;
     border-top: 1px solid #dee2e6;
 }
+label {
+    /* display: inline-block; */
+    /* text-size-adjust: auto; */
+    font-size: 20px;
+    margin-bottom: 0rem;
+
+}

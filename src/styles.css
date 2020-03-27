@@ -37,3 +37,9 @@ a.active {
 {
     cursor: pointer;
 }
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #142850;
+    border-color: #b6d9ff;
+}

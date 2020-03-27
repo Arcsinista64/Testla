@@ -15,6 +15,7 @@ export class AutosService {
 
   getAutos(): Observable<any>{
     return this.http.get<any>(this.autosUrl);
-    
   }
+
+  
 }

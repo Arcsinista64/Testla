@@ -2,7 +2,7 @@ import { Automovil } from "./models";
 import { Country} from "./models";
   
 
-export var AUTOMOVILES: Array<Automovil> =
+export var AUTO: Array<Automovil> =
 [
     // {
     //     marca:  "Tesla",

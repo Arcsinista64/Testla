@@ -1,1 +1,26 @@
-<p>modal-delete works!</p>
+<!-- <ng-template #editModal let-modal> -->
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{accion}} {{autoMarca}} {{autoSubmarca}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+                <!-- Text input-->
+                <div class="form-group">
+                  <label>¿Está seguro de eliminar {{autoMarca}} {{autoSubmarca}}?</label>  
+                </div>
+            </div>
+          </form>
+        </div>
+      
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Cancelar</button>
+        <button type="submit" class="btn btn-outline-danger" (click)="enviarConfirmacion(auto);">Eliminar</button>
+      </div>
+  <!-- </ng-template> -->
+  

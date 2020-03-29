@@ -6,7 +6,7 @@
       </button>
     </div>
     
-    <form #formAutos="ngForm" > 
+    <form #formAutos="ngForm" (ngSubmit)="sendModal()" novalidate> 
       <div class="modal-body">
         <form>
           <div class="form-group">
@@ -14,39 +14,44 @@
               <!-- Text input-->
               <div class="form-group">
                 <label>Marca</label>  
-                <div *ngIf="editar"><input type="text" [(ngModel)]= "auto.marca" name="txtMarca" placeholder="Ex: Toyota" class="form-control"></div>
-                <div *ngIf="agregar"><input type="text" placeholder="Ex: Toyota" class="form-control"></div>
+                <div *ngIf="editar"><input type="text" [(ngModel)]= "auto.marca" name="marca" placeholder="Ex: Toyota" class="form-control"></div>
+                <div *ngIf="agregar"><input type="text" [(ngModel)]="autoMarca" name="marca2" placeholder="Ex: Toyota" class="form-control"></div>
+              
               </div>
   
               <!-- Text input-->
               <div class="form-group">
                 <label>Submarca</label>  
-                <div *ngIf="editar"><input type="text" [(ngModel)]= "auto.submarca" name="txtSubmarca" placeholder="Ex: Yaris" class="form-control"></div>
-                <div *ngIf="agregar"><input type="text" placeholder="Ex: Yaris" class="form-control"></div>
+                <div *ngIf="editar"><input type="text" [(ngModel)]= "auto.submarca" name="submarca" placeholder="Ex: Yaris" class="form-control"></div>
+                <div *ngIf="agregar"><input type="text" [(ngModel)]="autoSubmarca" name="submarca2" placeholder="Ex: Yaris" class="form-control"></div>
               </div>
   
               <!-- Text input-->
               <div class="form-group">
                 <label>Modelos</label>  
-                <div *ngIf="editar"><input type="text" [(ngModel)]= "auto.modelos" name="txtModelos" placeholder="Ex: 2012, 2014, 2020" class="form-control"></div>
-                <div *ngIf="agregar"><input type="text" placeholder="Ex: 2012, 2014, 2020" class="form-control"></div>
+                <div *ngIf="editar"><input type="text" [(ngModel)]= "auto.modelos" name="modelos" placeholder="Ex: 2012, 2014, 2020" class="form-control"></div>
+                <div *ngIf="agregar"><input type="text" [(ngModel)]="autoModelos" name="modelos2" placeholder="Ex: 2012, 2014, 2020" class="form-control"></div>
               </div>
 
               <!-- Text input-->
               <div class="form-group">
                 <label>Descripción</label>  
-                <div *ngIf="editar"><input type="text" [(ngModel)]= "auto.descripcion" name="txtDescripcion" placeholder="Ex: Yaris Premium L4 TDI STD 4 ABS CA CE" class="form-control"></div>
-                <div *ngIf="agregar"><input type="text" placeholder="Ex: Yaris Premium L4 TDI STD 4 ABS CA CE" class="form-control"></div>
+                <div *ngIf="editar"><input type="text" [(ngModel)]= "auto.descripcion" name="descripcion" placeholder="Ex: Yaris Premium L4 TDI STD 4 ABS CA CE" class="form-control"></div>
+                <div *ngIf="agregar"><input type="text" [(ngModel)]="autoDescripcion" name="descripcion2" placeholder="Ex: Yaris Premium L4 TDI STD 4 ABS CA CE" class="form-control"></div>
               </div>
             
           </div>
         </form>
       </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close('Save click')">Cancelar</button>
+        <button type="submit" class="btn btn-outline-primary">Guardar</button>
+      </div>
+
+
     </form>
     
     
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-danger" (click)="activeModal.close('Save click')">Cancelar</button>
-      <button type="submit" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Guardar</button>
-    </div>
+    
 <!-- </ng-template> -->

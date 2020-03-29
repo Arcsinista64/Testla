@@ -14,8 +14,24 @@ export class AutosService {
   constructor(private http: HttpClient) { }
 
   getAutos(): Observable<any>{
-    return this.http.get<any>(this.autosUrl);
+    return this.http.get<any>(`${this.autosUrl}`);
   }
 
-  
+  postAutos(auto: Automovil): Observable<any>
+  {
+    return this.http.post<any>(`${this.autosUrl}`, auto);
+  }
+
+  putAutos(auto: Automovil): Observable<any>
+  {
+    return this.http.put<any>(`${this.autosUrl}${auto.id}`, auto);
+  }
+
+  deleteAutos(autoID: string): Observable<any>
+  {
+    return this.http.delete<any>(`${this.autosUrl}${autoID}`);
+  }
+
 }
+
+

@@ -18,10 +18,13 @@ export class ModalAddUpdateComponent implements OnInit {
 
   accion: string; //Editar o crear.
   auto: Automovil;
+  
+  autoId: number;
   autoMarca: string;
   autoSubmarca: string;
   autoDescripcion:string;
   autoModelos: [];
+  
   editar: boolean;
   agregar: boolean;
 
@@ -31,29 +34,17 @@ export class ModalAddUpdateComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  sendModal()
+  sendModal(): Automovil
   {
-    if(this.editar == true)
+    if(this.agregar == true)
     {
-      //Impresión de prueba
-      console.log(this.auto);
-      
-      //INTENTO CON VIEWCHILD
-      // this.componenteTabla.sendModalEditar(this.auto)
-
-    }
-    else
-    {
+     
+      this.auto._id = null;
       this.auto.marca = this.autoMarca;
       this.auto.submarca = this.autoSubmarca;
       this.auto.descripcion = this.autoDescripcion;
       this.auto.modelos = this.autoModelos;
-
-      //Impresión de prueba
-      console.log(this.auto);
-
-      //INTENTO CON VIEWCHILD
-      // this.componenteTabla.sendModalAgregar(this.auto)
     }
+    return (this.auto);
   }
 }

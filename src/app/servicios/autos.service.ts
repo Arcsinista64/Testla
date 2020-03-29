@@ -17,17 +17,21 @@ export class AutosService {
     return this.http.get<any>(`${this.autosUrl}`);
   }
 
+  getAutosLista(): Observable<any>{
+    return this.http.get<any>(`${this.autosUrl}limit/10`);
+  }
+
   postAutos(auto: Automovil): Observable<any>
   {
     return this.http.post<any>(`${this.autosUrl}`, auto);
   }
 
-  putAutos(auto: Automovil): Observable<any>
+  putAutos(auto: Automovil, autoID: number): Observable<any>
   {
-    return this.http.put<any>(`${this.autosUrl}${auto.id}`, auto);
+    return this.http.put<any>(`${this.autosUrl}${autoID}`, auto);
   }
 
-  deleteAutos(autoID: string): Observable<any>
+  deleteAutos(autoID: number): Observable<any>
   {
     return this.http.delete<any>(`${this.autosUrl}${autoID}`);
   }

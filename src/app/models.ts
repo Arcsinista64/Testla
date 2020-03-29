@@ -1,5 +1,5 @@
 export interface Automovil {
-    id: number;
+    _id: number;
     modelos: number[];
     marca: string;
     submarca: string;

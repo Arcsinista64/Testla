@@ -20,15 +20,11 @@ export class ModalDeleteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  enviarConfirmacion(auto: Automovil)
+  enviarConfirmacion(auto: Automovil) : number
   {
-    
     //IMPRESIÓN PRUEBA
-    console.log(this.auto);
+    console.log(auto._id);
 
-
-    //confirmarEliminar(this.auto);
-
+    return auto._id;
   };
-
 }

@@ -5,12 +5,20 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    
-    <form #formAutos="ngForm" (ngSubmit)="sendModal()" novalidate> 
+                        <!-- ↓ (ngSubmit)="sendModal()" -->
+    <form #formAutos="ngForm"  novalidate> 
       <div class="modal-body">
         <form>
           <div class="form-group">
             
+              <!-- Text input-->
+              <div class="form-group">
+                <label>ID</label>  
+                <div *ngIf="editar"><input type="text" [(ngModel)]= "auto._id" name="autoid" placeholder="Ex: Toyota" class="form-control" disabled></div>
+                <div *ngIf="agregar"><input type="text" [(ngModel)]="autoId" name="autoid2" placeholder="Autogenerado" class="form-control" disabled></div>
+              
+              </div>
+
               <!-- Text input-->
               <div class="form-group">
                 <label>Marca</label>  
@@ -45,8 +53,9 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close('Save click')">Cancelar</button>
-        <button type="submit" class="btn btn-outline-primary">Guardar</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('Cancelar button')">Cancelar</button>
+        <button type="submit" class="btn btn-outline-primary" (click)="activeModal.close(sendModal())">Guardar</button>
+                                                            <!-- (click)="activeModal.close(auto) -->
       </div>
 
 

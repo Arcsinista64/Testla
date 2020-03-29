@@ -20,7 +20,7 @@ export class TableComponent implements OnInit {
   autoSeleccionado: Automovil;
 
   page = 1;
-  pageSize = 100;
+  pageSize = 10;
   collectionSize;
   closeResult = '';
 
@@ -46,6 +46,21 @@ export class TableComponent implements OnInit {
     modalRef.componentInstance.accion = 'EDITAR:';
     modalRef.componentInstance.autoMarca = auto.marca;
     modalRef.componentInstance.autoSubmarca = auto.submarca;
+
+    // PROMISE
+    modalRef.result.then(
+      (auto) => {
+        this.autosService.putAutos(auto, auto._id).subscribe((response)=>
+        {
+          this.autos.push(response);
+          alert("Editado con éxito.");
+        })
+      },
+      (reason) => {
+        console.log(reason)
+      }
+    )
+
   }
   openModalAgregar()
   {
@@ -58,14 +73,29 @@ export class TableComponent implements OnInit {
     modalRef.componentInstance.autoMarca = "";
     modalRef.componentInstance.autoSubmarca = "";
 
-    let temporal = {
+    modalRef.componentInstance.auto = 
+    {
+      _id: 0,
+      modelos: [],
       marca: "",
       submarca: "",
       descripcion: "",
-      modelos:[]
-    }
 
-    modalRef.componentInstance.auto = temporal;   
+    };
+
+    //PROMISE
+    modalRef.result.then(
+      (auto) => {
+        this.autosService.postAutos(auto).subscribe((response)=>
+        {
+          this.autos.push(response);
+          alert("Agregado con éxito.");
+        })
+      },
+      (reason) => {
+        console.log(reason)
+      }
+    )
   }
   openModalEliminar(auto:Automovil)
   {
@@ -76,33 +106,24 @@ export class TableComponent implements OnInit {
     modalRef.componentInstance.autoMarca = auto.marca;
     modalRef.componentInstance.autoSubmarca = auto.submarca;
 
-  }
+    modalRef.result.then(
+      (autoID) => {        
+        this.autosService.deleteAutos(autoID).subscribe((response)=>
+        {
+          alert("Eliminado con éxito.");
+        })
+      },
+      (reason) => {
+        console.log(reason)
+      }
+    )
 
-  sendModalEditar(auto:Automovil)
-  {
-    this.autosService.putAutos(auto).subscribe((response)=>
-    {
-      this.autos.push(response);
-    })
-  }
-  sendModalAgregar(auto:Automovil)
-  {
-    this.autosService.postAutos(auto).subscribe((response)=>
-    {
-      this.autos.push(response);
-    })
-  }
-  confirmarEliminar(autoID: string)
-  {
-    this.autosService.deleteAutos(autoID).subscribe((response)=>
-    {
-      alert("Eliminado con éxito?");
-    })
-  }
+    
 
-
+  }
 
   // ICONS
+  
   faEdit = faEdit;
   faTrash = faTrash;
   faPlus = faPlus;

@@ -18,6 +18,8 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ModalAddUpdateComponent } from './modals/modal-add-update/modal-add-update.component';
 import { FormsModule } from '@angular/forms';
 import { ModalDeleteComponent } from './modals/modal-delete/modal-delete.component';
+import { FormatoModelosAutosPipe } from './pipes/formato-modelos-autos.pipe';
+import { FormatoDescripcionAutosPipe } from './pipes/formato-descripcion-autos.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ModalDeleteComponent } from './modals/modal-delete/modal-delete.compone
     PageNotFoundComponent,
     HomeComponent,
     ModalAddUpdateComponent,
-    ModalDeleteComponent
+    ModalDeleteComponent,
+    FormatoModelosAutosPipe,
+    FormatoDescripcionAutosPipe
   ],
   imports: [
     BrowserModule,

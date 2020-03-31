@@ -32,6 +32,7 @@ a.active {
     color: #142850;
     background-color: #fff;
     border: 1px solid #dee2e6;
+    font-size: 18px;
 }
 .select
 {

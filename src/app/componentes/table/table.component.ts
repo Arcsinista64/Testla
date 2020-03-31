@@ -54,6 +54,7 @@ export class TableComponent implements OnInit {
         {
           this.autos.push(response);
           alert("Editado con éxito.");
+          window.location.reload();
         })
       },
       (reason) => {
@@ -90,6 +91,7 @@ export class TableComponent implements OnInit {
         {
           this.autos.push(response);
           alert("Agregado con éxito.");
+          window.location.reload();
         })
       },
       (reason) => {
@@ -111,6 +113,7 @@ export class TableComponent implements OnInit {
         this.autosService.deleteAutos(autoID).subscribe((response)=>
         {
           alert("Eliminado con éxito.");
+          window.location.reload();
         })
       },
       (reason) => {

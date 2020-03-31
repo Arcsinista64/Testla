@@ -21,15 +21,21 @@ export class TableComponent implements OnInit {
   displayProgressBar: boolean;
 
   page = 1;
+
+  actuallyPage = 1;
   pageSize = 10;
   collectionSize;
   closeResult = '';
+  
+  // finalPage: number = Math.ceil((this.collectionSize+1)/this.pageSize);
+
 
   
   constructor(private autosService: AutosService, private modalService: NgbModal) { }
 
-  ngOnInit(): void {
+  ngOnInit(actuallyPage: number = this.actuallyPage): void {
 
+    
     this.displayProgressBar = true;
 
     this.autosService.getAutos().subscribe((response)=>{
@@ -37,8 +43,11 @@ export class TableComponent implements OnInit {
       setTimeout(()=>
       {
         this.displayProgressBar = false;
-        this.autos = response.data;
         this.collectionSize = response.data.length;
+        this.page = this.actuallyPage;
+        this.autos = response.data;
+
+
       }, 1000)
 
       
@@ -65,7 +74,9 @@ export class TableComponent implements OnInit {
         {
           this.autos.push(response);
           alert("Editado con éxito.");
-          window.location.reload();
+
+          this.actuallyPage = this.page;
+          this.ngOnInit();
         })
       },
       (reason) => {
@@ -102,7 +113,15 @@ export class TableComponent implements OnInit {
         {
           this.autos.push(response);
           alert("Agregado con éxito.");
-          window.location.reload();
+
+          // this.actuallyPage = this.finalPage;
+          
+          console.log(Math.ceil((this.collectionSize+1)/this.pageSize));
+          this.actuallyPage = Math.ceil((this.collectionSize+1)/this.pageSize);
+
+          
+          this.ngOnInit(/*this.actuallyPage*/);
+
         })
       },
       (reason) => {
@@ -124,7 +143,9 @@ export class TableComponent implements OnInit {
         this.autosService.deleteAutos(autoID).subscribe((response)=>
         {
           alert("Eliminado con éxito.");
-          window.location.reload();
+
+          this.actuallyPage = this.page;
+          this.ngOnInit();
         })
       },
       (reason) => {

@@ -10,8 +10,6 @@ export class FormatoDescripcionAutosPipe implements PipeTransform {
     let limit =limite;
 
     return value.length > limit ? value.substring(0,limit)+"..." :   value;
-    
-    return null;
   }
 
 }

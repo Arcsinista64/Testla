@@ -5,9 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FormatoDescripcionAutosPipe implements PipeTransform {
 
-  transform(value: string, limite: string): string {
+  transform(value: string, limite: number): string {
     
-    let limit = parseInt(limite);
+    let limit =limite;
 
     return value.length > limit ? value.substring(0,limit)+"..." :   value;
     

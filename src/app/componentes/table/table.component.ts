@@ -18,6 +18,7 @@ export class TableComponent implements OnInit {
 
   autos: Automovil[];
   autoSeleccionado: Automovil;
+  displayProgressBar: boolean;
 
   page = 1;
   pageSize = 10;
@@ -28,9 +29,19 @@ export class TableComponent implements OnInit {
   constructor(private autosService: AutosService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
+
+    this.displayProgressBar = true;
+
     this.autosService.getAutos().subscribe((response)=>{
-      this.autos = response.data;
-      this.collectionSize = response.data.length;
+      
+      setTimeout(()=>
+      {
+        this.displayProgressBar = false;
+        this.autos = response.data;
+        this.collectionSize = response.data.length;
+      }, 1000)
+
+      
     });
   }
 
@@ -126,7 +137,6 @@ export class TableComponent implements OnInit {
   }
 
   // ICONS
-  
   faEdit = faEdit;
   faTrash = faTrash;
   faPlus = faPlus;

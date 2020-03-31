@@ -14,15 +14,25 @@ export class ListComponent implements OnInit {
 
   autos: Automovil[];
   autoSeleccionado: Automovil;
+  displayProgressBar: boolean;
   
   closeResult = '';
 
   constructor(private modalService: NgbModal, private autoService: AutosService) { }
 
   ngOnInit(): void {
+    
+    this.displayProgressBar = true;
+
 
     this.autoService.getAutosLista().subscribe((response)=>{
-      this.autos = response.data;
+
+      setTimeout(()=>
+      {
+        this.displayProgressBar = false;
+        this.autos = response.data;
+      }, 1000)
+
     })
 
   }

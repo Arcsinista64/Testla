@@ -1,4 +1,9 @@
 <div class="container">
+
+  <br *ngIf="displayProgressBar">
+
+  <p *ngIf="displayProgressBar"><ngb-progressbar [value]="500" [animated]="true" [striped]="true" type="dark"></ngb-progressbar></p>
+
   <ng-container *ngFor="let auto of autos"> 
     <div class="list-autos" >
 
@@ -13,6 +18,7 @@
 
 
 <ng-template #autoModal let-modal>
+
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">{{autoSeleccionado.marca}} - {{autoSeleccionado.submarca}}</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">

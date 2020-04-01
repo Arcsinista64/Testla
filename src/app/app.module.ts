@@ -21,6 +21,8 @@ import { ModalDeleteComponent } from './modals/modal-delete/modal-delete.compone
 import { FormatoModelosAutosPipe } from './pipes/formato-modelos-autos.pipe';
 import { FormatoDescripcionAutosPipe } from './pipes/formato-descripcion-autos.pipe';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,8 @@ import { FormatoDescripcionAutosPipe } from './pipes/formato-descripcion-autos.p
     FontAwesomeModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

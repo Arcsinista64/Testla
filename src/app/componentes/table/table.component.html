@@ -3,11 +3,19 @@
     
   <div class="">
       <div>
-        <button type="button" class="btn btn-lg btn-outline-dark" (click)="openModalAgregar();"><span> Agregar </span><fa-icon class="select" [icon]="faPlus"></fa-icon>
+        <button type="button" class="btn btn-md btn-outline-dark" (click)="openModalAgregar();"><span> Agregar </span><fa-icon class="select" [icon]="faPlus"></fa-icon>
 
         </button>
       </div>
       
+      <div class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+        <input class="form-control form-control-sm" [(ngModel)] = "txtSearch" autocomplete="off" type="text" placeholder="Search" aria-label="Search">
+
+        <fa-icon class="" [icon]="faSearch" ></fa-icon>
+      </div>
+
+      <br> 
+
       <div >
         <ngb-pagination class="d-flex justify-content-center" 
             [maxSize]="12" 
@@ -41,7 +49,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; index as i">
+    <tr *ngFor="let auto of autos | filter: txtSearch | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; index as i">
       <th scope="row">{{ (i+1) + (page-1) * pageSize }}</th>
 
       <td>{{auto.marca }}</td>

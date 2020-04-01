@@ -4,6 +4,7 @@ import { Automovil } from 'src/app/models';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faPlus} from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { NgbActiveModal, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ModalAddUpdateComponent } from 'src/app/modals/modal-add-update/modal-add-update.component';
 import { ModalDeleteComponent } from 'src/app/modals/modal-delete/modal-delete.component';
@@ -27,7 +28,8 @@ export class TableComponent implements OnInit {
   collectionSize;
   closeResult = '';
   
-  // finalPage: number = Math.ceil((this.collectionSize+1)/this.pageSize);
+  txtSearch;
+  
 
 
   
@@ -161,4 +163,5 @@ export class TableComponent implements OnInit {
   faEdit = faEdit;
   faTrash = faTrash;
   faPlus = faPlus;
+  faSearch = faSearch;
 }

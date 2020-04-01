@@ -23,3 +23,17 @@ td.centrar, th.centrar
     /* border-top: 1px solid #dee2e6; */
 
 }
+fa-icon.ng-fa-icon {
+    margin-left: 10px;
+}
+
+input.form-control.form-control-sm[type=text]{
+    width: 40%;
+    margin-left: 2rem;
+}
+
+input.form-control.form-control-sm[type=text]:focus:not([readonly]) {
+    width: 40%;
+    margin-left: 2rem;
+    border: 1px solid #142850;
+}

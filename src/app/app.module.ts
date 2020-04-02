@@ -22,6 +22,7 @@ import { FormatoModelosAutosPipe } from './pipes/formato-modelos-autos.pipe';
 import { FormatoDescripcionAutosPipe } from './pipes/formato-descripcion-autos.pipe';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { LogComponent } from './componentes/log/log.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ModalAddUpdateComponent,
     ModalDeleteComponent,
     FormatoModelosAutosPipe,
-    FormatoDescripcionAutosPipe
+    FormatoDescripcionAutosPipe,
+    LogComponent
   ],
   imports: [
     BrowserModule,

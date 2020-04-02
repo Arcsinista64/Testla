@@ -4,6 +4,7 @@ import { ListComponent } from './componentes/list/list.component';
 import { TableComponent } from './componentes/table/table.component';
 import { PageNotFoundComponent } from './componentes/page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
+import { LogComponent } from './componentes/log/log.component';
 
 
 
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'home',component: HomeComponent},
   {path: 'list',component: ListComponent},
   {path: 'table',component: TableComponent},
+  {path: 'log',component: LogComponent},
   {path: '**',component: PageNotFoundComponent},
 
 ];

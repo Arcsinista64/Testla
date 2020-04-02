@@ -1,9 +1,9 @@
 .list
 {
-    background-color: #000000;
-    color:white;
+    background-color: rgba(21, 16, 51, 1);
+    color:#142850;
     list-style: none;
-    display: flex;
+    display: flex;  
     justify-content: space-around;
 }
 
